@@ -1,3 +1,3 @@
 @echo off
-py "C:\Users\otson\Desktop\ChatGPT\chatgpt.py"
+py "%cd%\chatgpt.py"
 pause
