@@ -1,2 +1,1 @@
-# ChatGPT
-ChatGPT API
+# ChatGPT API Python Client
