@@ -7,19 +7,8 @@ from tkinter import *
 global request_in_progress
 request_in_progress = False
 
-# GUI
-root = Tk()
-root.title("ChatGPT")
-
-BG_COLOR = "#282b30"
-TEXT_COLOR = "#EAECEE"
-
-FONT = "Helvetica 14"
-FONT_BOLD = "Helvetica 13 bold"
-
 # create a queue to store the result of the HTTP request
 result_queue = queue.Queue()
-
 
 def get_response(text, lang, queue):
     params = {'text': text, 'lang': lang}
@@ -39,7 +28,7 @@ def check_request_complete():
             # get the result from the queue
             result = result_queue.get()
             # insert the result into the text widget
-            txt.insert(END, "\n" + "Bot: " + result)
+            txt.insert(END, "\n\n" + "ChatGPT:\n" + result)
             # set the flag to False to indicate that the request is complete
             request_in_progress = False
 
@@ -48,7 +37,7 @@ def check_request_complete():
 
 
 def send():
-    send = "You: " + e.get()
+    send = "You:\n" + e.get()
     txt.insert(END, "\n" + send)
     user = e.get().lower()
     e.delete(0, END)
@@ -66,18 +55,25 @@ def send():
     # start the thread
     thread.start()
 
+# GUI
+root = Tk()
+root.title("ChatGPT")
+root.geometry("960x540")
+root['background']='#282b30'
 
-txt = Text(root, bg=BG_COLOR, fg=TEXT_COLOR, font=FONT, width=60)
-txt.grid(row=1, column=0, columnspan=2)
+BG_COLOR = "#282b30"
+TEXT_COLOR = "#fff"
 
-scrollbar = Scrollbar(txt)
-scrollbar.place(relheight=1, relx=0.974)
+FONT = "Arial"
 
-e = Entry(root, bg=BG_COLOR, fg=TEXT_COLOR, font=FONT, width=55)
+txt = Text(root, bg=BG_COLOR, fg=TEXT_COLOR, font=FONT)
+txt.grid(row=1, column=0)
+
+e = Entry(root, bg=BG_COLOR, fg=TEXT_COLOR, font=FONT)
 e.grid(row=2, column=0)
 
 send = Button(
-    root, text="Send", font=FONT_BOLD, bg=BG_COLOR, fg=TEXT_COLOR, command=send
+    root, text="Send", font=FONT, bg=BG_COLOR, fg=TEXT_COLOR, command=send
 ).grid(row=2, column=1)
 
 # define the thread variable
