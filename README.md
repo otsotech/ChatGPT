@@ -8,6 +8,7 @@ Please note that you will need to have the necessary dependencies installed in o
 
 ### Features
 - GUI interface for interacting with ChatGPT
+- Threading and queue modules to perform HTTP requests asynchronously.
 - Easy to use batch file for launching the script
 
 ### Requirements
