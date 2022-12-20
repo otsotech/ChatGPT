@@ -23,6 +23,3 @@ Install the required dependencies by running `pip install -r requirements.txt`
 Double click on chatgpt-ui.bat to launch the script 
 
 Enter your message and receive a response from ChatGPT
-
-### ChatGPT
-_ChatGPT is a language model that can generate human-like text in response to prompts in a conversational context._
