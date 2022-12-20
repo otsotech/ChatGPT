@@ -16,6 +16,9 @@ Please note that you will need to have the necessary dependencies installed in o
 
 ### Usage
 Clone the repository and navigate to the root directory
+
 Install the required dependencies by running `pip install -r requirements.txt`
+
 Double click on chatgpt-ui.bat to launch the script 
+
 Enter your message and receive a response from ChatGPT
